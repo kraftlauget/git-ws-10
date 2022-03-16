@@ -12,11 +12,13 @@ let rickYs = [];
 
 let increasedSizes = [];
 
+let rickCount = 0;
 
 const rickRoll = () => {
   const image = document.createElement("img");
   image.src = "./rick.jpg";
   image.className = "rick";
+  increaseRickCounter();
   document.body.appendChild(image);
 };
 
@@ -63,6 +65,10 @@ const isRickAtPointer = (i) => {
   return distanceFromPointer < distanceFromPointerToStop;
 };
 
+const increaseRickCounter = () => {
+  rickCount++;
+  $("#rick-counter").text(rickCount.toString(2));
+};
 
 const growRick = (i, image) => {
   const { increasedSize } = getRickInfo(i);
